@@ -4,8 +4,13 @@ import NavBar from '../../components/navBar/navBar.jsx'
 const AboutUs = () => {
   return (
     <div>
-      <NavBar />
+      <NavBar/>
+
+      <section className='container'>
+      </section>
+
       <>teste sobre nos</>
+
     </div>
   )
 }

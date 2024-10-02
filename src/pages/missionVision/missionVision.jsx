@@ -1,9 +1,19 @@
 import React from 'react'
 import './index.scss'
+import NavBar from '../../components/navBar/navBar.jsx'
+
 
 const MissionVision = () => {
   return (
-    <div>missionVision</div>
+    <div>
+      <NavBar/>
+
+      <section className='container'>
+      </section>
+
+      <>missionVision</>
+
+    </div>
   )
 }
 

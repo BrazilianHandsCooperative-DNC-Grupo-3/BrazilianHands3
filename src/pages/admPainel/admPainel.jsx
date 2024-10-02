@@ -13,7 +13,7 @@ const AdmPainel = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://localhost:5000/api/form');
+      const response = await fetch('https://backendbhcdnc.onrender.com/api/form');
       const result = await response.json();
       setData(result);
     } catch (error) {

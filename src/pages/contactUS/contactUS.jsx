@@ -1,9 +1,15 @@
 import React from 'react'
 import './index.scss'
+import ContactForm from '../../components/contactForm/contactForm'
+import NavBar from '../../components/navBar/navBar'
 
 const ContactUS = () => {
   return (
-    <div>contactUS</div>
+    <div>
+         <NavBar />
+         
+        <ContactForm / >
+    </div>
   )
 }
 
