@@ -56,7 +56,7 @@ const TeamForm = () => {
     const isValid = await validate();
     if (isValid) {
       try {
-        const response = await fetch('https://backendbhcdnc.onrender.com/api/form', { // Modificado aqui
+        const response = await fetch('https://backendbhcdnc.onrender.com/api/form', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify(formData),
