@@ -1,0 +1,40 @@
+@use '../../styles/var' as *;
+
+.container{
+    background-image: url(../../../public/Section1Desktop.svg);
+    padding-bottom: 1px;
+    
+}
+
+.priv {
+    font-family: inter;
+    font-size: 40px;
+    text-align: center;
+    text-decoration: underline;
+    color: #0C294F;
+}
+.poli {
+    font-family: montserrat;
+    font-size: 25px;
+    margin: 20px 20px;
+    padding: 10px 0px 10px;
+    color: rgb(1, 77, 41);
+}
+
+.spriv{
+    margin: 20px;
+    font-size: 20px;
+    padding: 20px;
+}
+
+.policy{
+    background-color: grey;
+    opacity: 80%;
+    align-items: center;
+    width: 900px;
+    margin:80px 300px 50px ;
+    padding: 20px;
+    border-radius: 10px;
+
+
+}
