@@ -1,10 +1,35 @@
 @use '../../styles/var' as *;
+body{
+    background-image: url(../../assets/houses.png);
+    
+}
+
 .Team {
     
     width: 10px;
+    padding-top: 100px;
     
+    
+    
+    .title-form{
+        padding: 30px;
+        padding-bottom: 0px;
+        margin-bottom: 10px;
+        font-size: 80px;
+        text-align: center;
+        font-family: inter;
+        font-weight: 700;
+        color: #034699fd;
+    } 
+
+    .Team_Group {
+        border: 1px solid white;
+        background-color: rgba(0, 0, 0, 0.8);
+        
+    }
 
     form {
+        
         
         display: flex;
         flex-direction: column;
@@ -43,11 +68,12 @@
         label {
             display: inline-block;
             font-size: 2vw;
-            font-weight: $font-regular;
+            font-weight: 800;
             margin-bottom: 1.5vw;
-            color: $secondaryFontColor;
+            color: #0962c7c7;
                
         }
+        
 
         &>div {
             margin-top: 3vw;

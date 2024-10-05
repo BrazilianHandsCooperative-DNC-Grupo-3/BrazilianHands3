@@ -16,6 +16,7 @@ const schema = yup.object().shape({
 });
 
 const contactForm = () => {
+  
   const [formData, setFormData] = useState({
     Contact: '',
     Email: '',
@@ -85,18 +86,22 @@ const contactForm = () => {
     }
   };
 
-  return (
-    
+  return (  
     <section className='Team'>
+      <div className='title-form'>Request a Service</div>
       <form onSubmit={onSubmit}>
+      
         <div className='Team_Group'>
+          
           <div className='Team_Group_Contact'>
+            
             <label htmlFor='Contact'>Contact</label>
             <div>
               <input
                 type='text'
                 id='Contact'
                 name='Contact'
+                placeholder='your name'
                 value={formData.Contact}
                 onChange={onInputChange}
               />
@@ -110,6 +115,7 @@ const contactForm = () => {
                 type='email'
                 id='Email'git 
                 name='Email'
+                placeholder='youremail@mail.com'
                 value={formData.Email}
                 onChange={onInputChange}
               />
@@ -123,6 +129,7 @@ const contactForm = () => {
                 type='tel'
                 id='Phone'
                 name='Phone'
+                placeholder='your phone'
                 value={formData.Phone}
                 onChange={onInputChange}
               />
@@ -149,6 +156,7 @@ const contactForm = () => {
                 type='text'
                 id='Address'
                 name='Address'
+                placeholder='your address, and district'
                 value={formData.Address}
                 onChange={onInputChange}
               />
@@ -162,6 +170,7 @@ const contactForm = () => {
                 type='text'
                 id='AddressNumber'
                 name='AddressNumber'
+                placeholder='what is number of your home?'
                 value={formData.AddressNumber}
                 onChange={onInputChange}
               />
@@ -175,6 +184,7 @@ const contactForm = () => {
                 type='text'
                 id='Complement'
                 name='Complement'
+                placeholder='um complemento'
                 value={formData.Complement}
                 onChange={onInputChange}
               />
@@ -187,6 +197,7 @@ const contactForm = () => {
                 type='text'
                 id='Services'
                 name='Services'
+                placeholder='quick cleaning, cost-effective, silent-cleaning, other services'
                 value={formData.Services}
                 onChange={onInputChange}
               />
@@ -201,6 +212,7 @@ const contactForm = () => {
                 type='text'
                 id='Services'
                 name='Services'
+                placeholder='example: product of cleaning,vacuum cleaner,lawn mower ... '
                 value={formData.Services}
                 onChange={onInputChange}
               />
