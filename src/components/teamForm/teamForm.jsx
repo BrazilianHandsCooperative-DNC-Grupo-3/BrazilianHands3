@@ -57,14 +57,15 @@ const TeamForm = () => {
     const isValid = await validate();
     if (isValid) {
       try {
-        const response = await fetch('https://backendbhcdnc.onrender.com/api/form', {
+        const dataToSend = { ...formData, userType: 'Provider'};
+
+        const response = await fetch('https://backendbhcdnc.onrender.com/api/provider-form', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(dataToSend),
         });
 
         if (response.ok) {
-          alert('Form submitted successfully');
           setFormData({
             Contact: '',
             Email: '',

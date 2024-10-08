@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import * as yup from 'yup';
 import './index.scss';
 
+
+
 const schema = yup.object().shape({
   Contact: yup.string().required('Name is required'),
   Email: yup.string().required('Email is required').matches(

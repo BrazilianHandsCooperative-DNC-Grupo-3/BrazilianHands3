@@ -24,7 +24,7 @@ const NavBar = () => {
             <li><Link to='/ourServices'>Our Services</Link></li>
             <li><Link to='/contactUS'>Contat Us</Link></li>
             <li><Link to='/joinOurTeam'>Join Our Team</Link></li>
-            <li><Link to='/'>Privacy Policy</Link></li>
+            <li><Link to='/privacyPolicy'>Privacy Policy</Link></li>
           </ul>
         </nav>
       </header>

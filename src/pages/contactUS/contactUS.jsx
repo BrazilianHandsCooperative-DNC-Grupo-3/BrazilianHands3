@@ -6,9 +6,20 @@ import NavBar from '../../components/navBar/navBar'
 const ContactUS = () => {
   return (
     <div>
-         <NavBar />
-         
-        <ContactForm / >
+      <NavBar />
+      <section className='container'>
+        <section className='text-JoinOurTeam'>
+          <h1>
+            Contact Us
+          </h1>
+          <p>
+            Contact us by providing your details below, along with the<br />
+            service you need, so that one of our professionals can get in<br />
+            touch with you.<br />
+          </p>
+        </section>
+      </section>
+      <ContactForm />
     </div>
   )
 }
