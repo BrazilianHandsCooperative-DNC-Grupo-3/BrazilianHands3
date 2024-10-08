@@ -1,40 +1,41 @@
 @use '../../styles/var' as *;
 
 .container{
-    background-image: url(../../../public/Section1Desktop.svg);
-    padding-bottom: 1px;
+    display: flex;
+    justify-content: center;
+    background-color: $primaryBackgroundColor;
+    padding-top: 7vw;
     
-}
+    .policy{
+        height: 100%;
+        width: 70vw;
+        display: flex;
+        flex-direction: column;
+       gap: 1.5vw;
 
-.priv {
-    font-family: inter;
-    font-size: 40px;
-    text-align: center;
-    text-decoration: underline;
-    color: #0C294F;
-}
-.poli {
-    font-family: montserrat;
-    font-size: 25px;
-    margin: 20px 20px;
-    padding: 10px 0px 10px;
-    color: rgb(1, 77, 41);
-}
+        .priv {
+            margin-top: 5vw;
+            font-size: 3.2vw;
+            font-weight: $font-bold;
+            text-align: center;
+            color: $primaryBlue;
+            margin-bottom: 100px;
+        }
 
-.spriv{
-    margin: 20px;
-    font-size: 20px;
-    padding: 20px;
-}
+        .poli {
+            font-size: 2vw;
+            font-weight: $font-semibold;
+            color: $tertiaryFontColor;
+        }
 
-.policy{
-    background-color: grey;
-    opacity: 80%;
-    align-items: center;
-    width: 900px;
-    margin:80px 300px 50px ;
-    padding: 20px;
-    border-radius: 10px;
-
-
+        .spriv{
+            margin: 20px;
+            font-size: 1.5vw;
+            font-weight: $font-regular;
+        }
+        .policy{
+            height: 100%;
+            width: 70vw;
+        }
+    }
 }
