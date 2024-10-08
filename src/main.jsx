@@ -8,6 +8,7 @@ import ContactUS from './pages/contactUS/contactUS'
 import JoinOurTeam from './pages/joinOurTeam/joinOurTeam'
 import AdmPainel from './pages/admPainel/admPainel'
 import ReturnTeam from './pages/returnTeam/returnTeam'
+import PrivacyPolicy from './pages/privacyPolicy/privacyPolicy'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
   {
     path: "/rt",
     element: <ReturnTeam />,
+  },
+  {
+    path: "/privacyPolicy",
+    element: <PrivacyPolicy />,
   },
   {
     path: "/1234",

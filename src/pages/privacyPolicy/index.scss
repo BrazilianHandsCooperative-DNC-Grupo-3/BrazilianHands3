@@ -1,0 +1,41 @@
+@use '../../styles/var' as *;
+
+.container{
+    display: flex;
+    justify-content: center;
+    background-color: $primaryBackgroundColor;
+    padding-top: 7vw;
+    
+    .policy{
+        height: 100%;
+        width: 70vw;
+        display: flex;
+        flex-direction: column;
+       gap: 1.5vw;
+
+        .priv {
+            margin-top: 5vw;
+            font-size: 3.2vw;
+            font-weight: $font-bold;
+            text-align: center;
+            color: $primaryBlue;
+            margin-bottom: 100px;
+        }
+
+        .poli {
+            font-size: 2vw;
+            font-weight: $font-semibold;
+            color: $tertiaryFontColor;
+        }
+
+        .spriv{
+            margin: 20px;
+            font-size: 1.5vw;
+            font-weight: $font-regular;
+        }
+        .policy{
+            height: 100%;
+            width: 70vw;
+        }
+    }
+}
