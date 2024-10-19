@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import './index.scss';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import NavBar from '../../components/navBar/navBar.jsx';
+import Footer from '../../components/footer/footer.jsx';
 
 function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -150,6 +151,7 @@ function Home() {
           </section>
         </div>
       </div>
+      <Footer/>
     </section>
   );
 }

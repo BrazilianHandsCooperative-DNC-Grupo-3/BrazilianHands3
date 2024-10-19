@@ -46,7 +46,7 @@ const services = [
 const OurServices = () => {
   return (
     <div>
-      <NavBar/>
+      <NavBar />
       <div className='services_page'>
         <div className='services_banner'>
           <h1>Explore Our Exceptional Services!</h1>
@@ -71,7 +71,7 @@ const OurServices = () => {
           <p>Get in touch with our talented and dedicated team today!</p>
           <button className='botaoEspecial'>Click here to be directed to our form</button>
         </div>
-        </div>
+      </div>
     </div>
   );
 };
