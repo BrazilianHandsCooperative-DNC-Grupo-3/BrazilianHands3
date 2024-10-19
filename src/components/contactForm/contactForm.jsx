@@ -86,142 +86,195 @@ const contactForm = () => {
     }
   };
 
+  
+
+ 
+
   return (  
-    <section className='Team'>
-      <div className='title-form'>Request a Service</div>
-      <form onSubmit={onSubmit}>
-      
-        <div className='Team_Group'>
+    <section className='Team '>   
           
-          <div className='Team_Group_Contact'>
-            
-            <label htmlFor='Contact'>Contact</label>
-            <div>
-              <input
-                type='text'
-                id='Contact'
-                name='Contact'
-                placeholder='your name'
-                value={formData.Contact}
-                onChange={onInputChange}
-              />
-              {errors.Contact && <p className='error'>{errors.Contact}</p>}
-            </div>
-          </div>
-          <div className='Team_Group_Email'>
-            <label htmlFor='Email'>Email</label>
-            <div>
-              <input
-                type='email'
-                id='Email'git 
-                name='Email'
-                placeholder='youremail@mail.com'
-                value={formData.Email}
-                onChange={onInputChange}
-              />
-              {errors.Email && <p className='error'>{errors.Email}</p>}
-            </div>
-          </div>
-          <div className='Team_Group_Phone'>
-            <label htmlFor='Phone'>Phone</label>
-            <div>
-              <input
-                type='tel'
-                id='Phone'
-                name='Phone'
-                placeholder='your phone'
-                value={formData.Phone}
-                onChange={onInputChange}
-              />
-              {errors.Phone && <p className='error'>{errors.Phone}</p>}
-            </div>
-          </div>
-          <div className='Team_Group_Eircode'>
-            <label htmlFor='Eircode'>Eircode</label>
-            <div>
-              <input
-                type='text'
-                id='Eircode'
-                name='Eircode'
-                value={formData.Eircode}
-                onChange={onInputChange}
-              />
-              {errors.Eircode && <p className='error'>{errors.Eircode}</p>}
-            </div>
-          </div>
-          <div className='Team_Group_Address'>
-            <label htmlFor='Address'>Address</label>
-            <div>
-              <input
-                type='text'
-                id='Address'
-                name='Address'
-                placeholder='your address, and district'
-                value={formData.Address}
-                onChange={onInputChange}
-              />
-              {errors.Address && <p className='error'>{errors.Address}</p>}
-            </div>
-          </div>
-          <div className='Team_Group_Number'>
-            <label htmlFor='AddressNumber'>Number</label>
-            <div>
-              <input
-                type='text'
-                id='AddressNumber'
-                name='AddressNumber'
-                placeholder='what is number of your home?'
-                value={formData.AddressNumber}
-                onChange={onInputChange}
-              />
-              {errors.AddressNumber && <p className='error'>{errors.AddressNumber}</p>}
-            </div>
-          </div>
-          <div className='Team_Group_Complement'>
-            <label htmlFor='Complement'>Complement</label>
-            <div className='Form_Team_Grop'>
-              <input
-                type='text'
-                id='Complement'
-                name='Complement'
-                placeholder='um complemento'
-                value={formData.Complement}
-                onChange={onInputChange}
-              />
-            </div>
-          </div>
-          <div className='Team_Group_Services'>
-            <label htmlFor='Services'>type of service to be performed:</label>
-            <div className='Form_Team_Grop'>
-              <input
-                type='text'
-                id='Services'
-                name='Services'
-                placeholder='quick cleaning, cost-effective, silent-cleaning, other services'
-                value={formData.Services}
-                onChange={onInputChange}
-              />
-              {errors.Services && <p className='error'>{errors.Services}</p>}
-            </div>
-          </div>
-         
-          <div className='Team_Group_Services'>
-            <label htmlFor='Material'>Do you have the material for the service? which?</label>
-            <div className='Form_Team_Grop'>
-              <input
-                type='text'
-                id='Services'
-                name='Services'
-                placeholder='example: product of cleaning,vacuum cleaner,lawn mower ... '
-                value={formData.Services}
-                onChange={onInputChange}
-              />
-              {errors.Services && <p className='error'>{errors.Services}</p>}
-            </div>
-          </div>
-        </div>
-        <button type="submit">Submit my request</button>
-      </form>
+        <form onSubmit={onSubmit}>
+                 <div className='Team_Group'>
+                  <fieldset className='listra'>
+                  <legend>Request a Service</legend>
+                  <br/>                        
+                  <div className='Team_Group_Contact'>                    
+                    <label htmlFor='Contact' className='labelInput'>Contact</label>
+                    <div>
+                      <input
+                        type='text'
+                        id='Contact'
+                        name='Contact'
+                        className='inputUser'
+                        value={formData.Contact}
+                        onChange={onInputChange}
+                        
+                      />
+                      {errors.Contact && <p className='error'>{errors.Contact}</p>}
+                    </div>
+                  </div>
+                  <div className='Team_Group_Email'>
+                    <label htmlFor='Email'className='labelInput'>Email</label>
+                    <div>
+                      <input
+                        type='email'
+                        id='Email'git 
+                        name='Email'
+                        className='inputUser'
+                        value={formData.Email}
+                        onChange={onInputChange}
+                      />
+                      {errors.Email && <p className='error'>{errors.Email}</p>}
+                    </div>
+                  </div>
+                  <div className='Team_Group_Phone'>
+                    <label htmlFor='Phone'className='labelInput'>Phone</label>
+                    <div>
+                      <input
+                        type='tel'
+                        id='Phone'
+                        name='Phone'
+                        className='inputUser'
+                        value={formData.Phone}
+                        onChange={onInputChange}
+                      />
+                      {errors.Phone && <p className='error'>{errors.Phone}</p>}
+                    </div>
+                  </div>
+                  <div className='Team_Group_Eircode'>
+                    <label htmlFor='Eircode'className='labelInput'>Eircode</label>
+                    <div>
+                      <input
+                        type='text'
+                        id='Eircode'
+                        name='Eircode'
+                        className='inputUser'
+                        value={formData.Eircode}
+                        onChange={onInputChange}
+                      />
+                      {errors.Eircode && <p className='error'>{errors.Eircode}</p>}
+                    </div>
+                  </div>
+                  <div className='Team_Group_Address'>
+                    <label htmlFor='Address' className='labelInput'>Address</label>
+                    <div>
+                      <input
+                        type='text'
+                        id='Address'
+                        name='Address'
+                        className='inputUser'
+                        value={formData.Address}
+                        onChange={onInputChange}
+                      />
+                      {errors.Address && <p className='error'>{errors.Address}</p>}
+                    </div>
+                  </div>
+                  <div className='Team_Group_Number'>
+                    <label htmlFor='AddressNumber' className='labelInput'>Number</label>
+                    <div>
+                      <input
+                        type='text'
+                        id='AddressNumber'
+                        name='AddressNumber'
+                        className='inputUser'
+                        value={formData.AddressNumber}
+                        onChange={onInputChange}
+                      />
+                      {errors.AddressNumber && <p className='error'>{errors.AddressNumber}</p>}
+                    </div>
+                  </div>
+                  <div className='Team_Group_Complement'>
+                    <label htmlFor='Complement' className='labelInput'>Complement</label>
+                    <div className='Form_Team_Grop'>
+                      <input
+                        type='text'
+                        id='Complement'
+                        name='Complement'
+                        className='inputUser'
+                        value={formData.Complement}
+                        onChange={onInputChange}
+                      />
+                    </div>
+                  </div>
+                  <div className='check '>
+                    <p>type of service to be performed:</p>
+                    <div className='check'>
+                      <input
+                        type="checkbox"
+                        id='quickCleaning'
+                        name='typeServices'
+                        value="quickCleaning"
+                        onChange={onInputChange}
+                      />
+                      <label htmlFor="quickCleaning">Quick Cleaning</label>
+                      <br></br>
+                      <input
+                        type="checkbox"
+                        id='costEffective'
+                        name='typeServices'
+                        value="costEffective"
+                        onChange={onInputChange}
+                      />
+                      <label htmlFor="costEffective">Cost Effective </label>
+                      <br></br>
+                      <input
+                        type="checkbox"
+                        id='silentCleaning'
+                        name='typeServices'
+                        value="silentCleaning"
+                        onChange={onInputChange}
+                      />
+                      <label htmlFor="silentCleaning">Silent Cleaning</label>
+                      <br/><br></br>
+                      <label htmlFor="otherServices">Other Services :</label>
+                      <input
+                        type='text'
+                        id='otherServices'
+                        name='typeServices'
+                        placeholder="other Services"
+                        value={formData.Services}
+                        onChange={onInputChange}
+                      />
+                      {errors.Services && <p className='error'>{errors.Services}</p>}
+                    </div>
+                  </div>
+                
+                  <div className='Team_Group_Services'>
+                    <label htmlFor='Material'className='labelInput'>Do you have the material for the service? which?</label>
+                    <div className='Form_Team_Grop'>
+                      <input
+                        type='text'
+                        id='Services'
+                        name='Services'
+                        
+                        value={formData.Services}
+                        onChange={onInputChange}
+                      />
+                      {errors.Services && <p className='error'>{errors.Services}</p>}
+                    </div>
+                  </div>
+                  <div className='inputBox '>
+                  <label htmlFor='date_service'>what good date for make the service?</label>
+                    
+                      <input
+                        type='date'
+                        id='date_service'
+                        name='date_service'
+                        className='inputUser'
+                        pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"
+                        value={formData.Services}
+                        onChange={onInputChange}
+                      />
+                      
+                      {errors.Services && <p className='error'>{errors.Services}</p>}
+                    
+                  </div>
+                  
+                  </fieldset>
+                </div> 
+                <button type="submit">Submit my request</button>            
+        </form> 
+      
     </section>
   );
 };

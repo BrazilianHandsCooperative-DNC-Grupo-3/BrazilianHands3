@@ -8,7 +8,7 @@ const ContactUS = () => {
     <div>
          <NavBar />
          
-        <ContactForm / >
+        <ContactForm />
     </div>
   )
 }
