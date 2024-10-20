@@ -1,0 +1,115 @@
+@use '../../styles/var' as *;
+
+
+
+.container{
+    text-align: center;
+}
+
+.container-about-us > h1{
+    font-size: 4.2vw;
+    font-weight: 700;
+    margin: 0 0 10% 0;
+    color: #fff;
+}
+
+.container-about-us > p{
+    margin-bottom: 5%;
+    color: #fff;
+    text-align: left;
+}
+
+.container-about-us{
+    background-image: url(../../../public/aboutUs.svg);
+    padding: 10% 10% 10%;
+}
+
+.mission{
+    background-color: #FED79C;
+    padding: 10% 10% 5%;
+}
+
+.title-h2{
+    font-size: 4.2vw;
+    font-weight: 700;
+    margin-bottom: 10%;
+}
+
+.text-align{
+    font-size: 3vw;
+    font-weight: 300;
+    margin-bottom: 10%;
+    text-align: left;
+}
+
+.text-center{
+    font-size: 3vw;
+    font-weight: 300;
+    margin-bottom: 10%;
+    text-align: center;
+}
+
+.vision{
+    padding: 10% 10% 10%;
+}
+
+.contactButton {
+    background-color: $secondaryBlue;
+    border-radius: 1vw;
+    color: $primaryFontColor;
+    font-weight: $font-bold;
+    font-size: 1.5vw;
+    height: 4vw;
+    width: 80vw;
+
+    &:hover {
+        background-color: $hoverBlue;
+        box-shadow: 2px 5px 0px 0px $shadowBlue;
+        transform: translateY(-2px);
+        transition-duration: 0.4s;
+        cursor: pointer;
+    }
+}
+
+@media only screen and (max-width: 1024px){
+    .container-about-us{
+        padding-top: 18%;
+    }
+    
+    .contactButton{
+        font-size: 3.5vw;
+        height: 8vw;
+        width: 80vw;
+        border-radius: 2vw;
+    }
+}
+
+@media only screen and (max-width: 767px){
+    .container-about-us{
+        padding-top: 20%;
+    }
+
+    .container-about-us > h1{
+        font-size: 6vw;
+    }
+
+    .title-h2{
+        font-size: 6vw;
+    }
+    
+    .text-align{
+        font-size: 4.2vw;
+        font-weight: 400;
+    }
+    
+    .text-center{
+        font-size: 4.2vw;
+    }
+
+    .contactButton{
+        font-size: 3.9vw;
+        height: 9vw;
+        width: 82vw;
+        border-radius: 2vw;
+    }
+}
