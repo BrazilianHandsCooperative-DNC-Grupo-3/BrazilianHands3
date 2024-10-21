@@ -1,5 +1,15 @@
 @use '../../styles/var' as *;
 
+body {
+    background-color: $primaryBackgroundColor !important;
+}
+
+.container {
+    margin: 0; // Resetando margens
+    padding: 0; // Resetando paddings
+    padding-top: 70px; // Ajuste esse valor de acordo com a altura da navbar
+}
+
 .text-JoinOurTeam {
     display: flex;
     align-items: center;
@@ -7,4 +17,23 @@
     flex-direction: column;
     margin: 2.375rem 2rem;
     text-align: center;
+}
+
+.display {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+@media (max-width: 767px) {
+    .container {
+        padding-top: 15vw !important;
+        
+        h1{
+            font-size: 18px;
+        }
+        p{
+            font-size: 13px;
+        }
+    }
 }

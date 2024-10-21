@@ -20,8 +20,10 @@ const ContactUS = () => {
           </p>
         </section>
       </section>
+      <div className='display'>
       <ContactForm />
       <Footer/>
+      </div>
     </div>
   )
 }
