@@ -1,5 +1,6 @@
 import './index.scss';
 import NavBar from '../../components/navBar/navBar.jsx';
+import Footer from '../../components/footer/footer'
 
 const PrivacyPolicy = () => {
   return (
@@ -76,6 +77,7 @@ const PrivacyPolicy = () => {
           </p>
         </div>
       </section>
+      <Footer/>
     </div>
   );
 };

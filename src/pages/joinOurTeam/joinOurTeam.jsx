@@ -2,6 +2,7 @@ import React from 'react';
 import './index.scss';
 import TeamForm from '../../components/teamForm/teamForm'
 import NavBar from '../../components/navBar/navBar';
+import Footer from '../../components/footer/footer'
 
 const JoinOurTeam = () => {
 
@@ -26,7 +27,7 @@ const JoinOurTeam = () => {
       </section>
 
       <TeamForm />
-
+      <Footer/>
     </div>
   )
 }

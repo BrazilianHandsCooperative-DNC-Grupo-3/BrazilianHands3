@@ -2,6 +2,7 @@ import React from 'react';
 import './index.scss';
 import NavBar from '../../components/navBar/navBar.jsx'
 import CardService from '../../components/cardService/cardService.jsx';
+import Footer from '../../components/footer/footer'
 
 
 const services = [
@@ -72,6 +73,7 @@ const OurServices = () => {
           <button className='botaoEspecial'>Click here to be directed to our form</button>
         </div>
       </div>
+      <Footer/>
     </div>
   );
 };
