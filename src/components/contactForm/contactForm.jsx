@@ -1,20 +1,21 @@
 import React, { useState } from 'react';
 import * as yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 import './index.scss';
 
-
-
 const schema = yup.object().shape({
-  Contact: yup.string().required('Name is required'),
+  Contact: yup.string().required('Name is required').matches(/^[\s\S]*$/, 'Spaces are allowed'),
   Email: yup.string().required('Email is required').matches(
     /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     'Email must be a valid format (e.g., name@example.com)'
   ),
-  Phone: yup.string().required('Phone number is required'),
+  Phone: yup.string().required('Phone number is required').matches(/^[0-9]*$/, 'Phone number must contain only numbers'), // Apenas números
   Eircode: yup.string().required('Eircode is required'),
-  Address: yup.string().required('Address is required'),
+  Address: yup.string().required('Address is required').matches(/^[\s\S]*$/, 'Spaces are allowed'),
   AddressNumber: yup.string().required('Number is required'),
-  Services: yup.string().required('Services are required'),
+  Complement: yup.string().matches(/^[\s\S]*$/, 'Spaces are allowed'),
+  Services: yup.string().required('Services are required').matches(/^[\s\S]*$/, 'Spaces are allowed'),
+  Material: yup.string().matches(/^[\s\S]*$/, 'Spaces are allowed'),
 });
 
 const ContactForm = () => {
@@ -29,13 +30,22 @@ const ContactForm = () => {
     Services: '',
     Material: '',
   });
- 
-  
+
   const [errors, setErrors] = useState({});
+  const navigate = useNavigate();
 
   const onInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value.trim() }));
+    
+    // Permitir apenas números no campo Phone
+    if (name === 'Phone') {
+      if (/^[0-9]*$/.test(value) || value === '') { // Permitir apenas números ou vazio
+        setFormData(prev => ({ ...prev, [name]: value }));
+      }
+    } else {
+      setFormData(prev => ({ ...prev, [name]: value.trimStart() })); // Mantém espaços à direita
+    }
+
     setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
@@ -61,8 +71,8 @@ const ContactForm = () => {
       try {
         const dataToSend = {
           ...formData,
-          userType: 'client',  
-          Material: formData.Material || 'No material provided', 
+          userType: 'client',
+          Material: formData.Material || 'No material provided',
         };
 
         const response = await fetch('https://backendbhcdnc.onrender.com/api/client-form', {
@@ -72,7 +82,6 @@ const ContactForm = () => {
         });
 
         if (response.ok) {
-          alert('Form submitted successfully');
           setFormData({
             Contact: '',
             Email: '',
@@ -84,20 +93,21 @@ const ContactForm = () => {
             Services: '',
             Material: '',
           });
+          navigate('/rt');
         } else {
-          alert('Error adding form data to Google Sheets');
+          alert('Error adding form data to database');
         }
       } catch (error) {
-        alert('Error adding form data to Google Sheets');
+        alert('Error adding form data to database');
       }
     }
   };
 
   return (
-    
     <section className='Team'>
       <form onSubmit={onSubmit}>
         <div className='Team_Group'>
+          {/* Campos do formulário */}
           <div className='Team_Group_Contact'>
             <label htmlFor='Contact'>Contact</label>
             <div>
@@ -116,7 +126,7 @@ const ContactForm = () => {
             <div>
               <input
                 type='email'
-                id='Email'git 
+                id='Email'
                 name='Email'
                 value={formData.Email}
                 onChange={onInputChange}
@@ -189,7 +199,7 @@ const ContactForm = () => {
             </div>
           </div>
           <div className='Team_Group_Services'>
-            <label htmlFor='Services'>type of service to be performed:</label>
+            <label htmlFor='Services'>Type of service to be performed:</label>
             <div className='Form_Team_Grop'>
               <input
                 type='text'
@@ -201,18 +211,16 @@ const ContactForm = () => {
               {errors.Services && <p className='error'>{errors.Services}</p>}
             </div>
           </div>
-         
           <div className='Team_Group_Services'>
-            <label htmlFor='Material'>Do you have the material for the service? which?</label>
+            <label htmlFor='Material'>Do you have the material for the service? Which?</label>
             <div className='Form_Team_Grop'>
               <input
                 type='text'
-                id='Services'
-                name='Services'
-                value={formData.Services}
+                id='Material'
+                name='Material'
+                value={formData.Material}
                 onChange={onInputChange}
               />
-              {errors.Services && <p className='error'>{errors.Services}</p>}
             </div>
           </div>
         </div>

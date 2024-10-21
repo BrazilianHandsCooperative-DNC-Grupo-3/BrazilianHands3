@@ -4,16 +4,17 @@ import * as yup from 'yup';
 import './index.scss';
 
 const schema = yup.object().shape({
-  Contact: yup.string().required('Name is required'),
-  Email: yup.string().required('Email is required').matches(
+  Contact: yup.string().nullable(), // Permite espaços vazios
+  Email: yup.string().nullable().required('Email is required').matches(
     /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/,
     'Email must be a valid format (e.g., name@example.com)'
   ),
-  Phone: yup.string().required('Phone number is required'),
-  Eircode: yup.string().required('Eircode is required'),
-  Address: yup.string().required('Address is required'),
-  AddressNumber: yup.string().required('Number is required'),
-  Services: yup.string().required('Services are required'),
+  Phone: yup.string().nullable(), // Permite espaços vazios
+  Eircode: yup.string().nullable(), // Permite espaços vazios
+  Address: yup.string().nullable().required('Address is required'), // Permite espaços vazios
+  AddressNumber: yup.string().nullable(), // Permite espaços vazios
+  Complement: yup.string().nullable(), // Permite espaços vazios
+  Services: yup.string().nullable().required('Services are required'), // Permite espaços vazios
 });
 
 const TeamForm = () => {
@@ -33,7 +34,7 @@ const TeamForm = () => {
 
   const onInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData(prev => ({ ...prev, [name]: value.trim() }));
+    setFormData(prev => ({ ...prev, [name]: value })); // Remove o trim para permitir espaços
     setErrors(prev => ({ ...prev, [name]: '' }));
   };
 
@@ -57,7 +58,7 @@ const TeamForm = () => {
     const isValid = await validate();
     if (isValid) {
       try {
-        const dataToSend = { ...formData, userType: 'Provider'};
+        const dataToSend = { ...formData, userType: 'Provider' };
 
         const response = await fetch('https://backendbhcdnc.onrender.com/api/provider-form', {
           method: 'POST',
@@ -130,7 +131,7 @@ const TeamForm = () => {
                 onChange={onInputChange}
               />
               {errors.Phone && <p className='error'>{errors.Phone}</p>}
-            </div>
+ </div>
           </div>
 
           <div className='Team_Group_Eircode'>
