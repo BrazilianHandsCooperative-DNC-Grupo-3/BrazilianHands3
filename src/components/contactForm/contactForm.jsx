@@ -17,7 +17,7 @@ const schema = yup.object().shape({
   Services: yup.string().required('Services are required'),
 });
 
-const contactForm = () => {
+const ContactForm = () => {
   const [formData, setFormData] = useState({
     Contact: '',
     Email: '',
@@ -59,10 +59,16 @@ const contactForm = () => {
     const isValid = await validate();
     if (isValid) {
       try {
-        const response = await fetch('https://api.sheetmonkey.io/form/uyWHi5PnxssqqGdNRyVw3o', {
+        const dataToSend = {
+          ...formData,
+          userType: 'client',  
+          Material: formData.Material || 'No material provided', 
+        };
+
+        const response = await fetch('https://backendbhcdnc.onrender.com/api/client-form', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(formData),
+          body: JSON.stringify(dataToSend),
         });
 
         if (response.ok) {
@@ -216,4 +222,4 @@ const contactForm = () => {
   );
 };
 
-export default contactForm;
+export default ContactForm;
