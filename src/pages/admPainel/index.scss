@@ -1,1 +1,25 @@
 @use '../../styles/var' as *;
+
+.login {
+    padding-top: 10vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.tabela {
+    margin-right: 5vw;
+    margin-left: 5vw;
+    width: 90vw;
+    display: table; // Muda para table para um comportamento padrão de tabela
+
+    &__info {
+        font-size: 1vw;
+        display: table-row; // Comportamento de linha de tabela
+        text-align: center; // Centraliza o texto horizontalmente
+    }
+}
+
+.tabela th, .tabela td {
+    padding: 1rem; // Espaçamento nas células
+    text-align: center; // Centraliza horizontalmente
+}
