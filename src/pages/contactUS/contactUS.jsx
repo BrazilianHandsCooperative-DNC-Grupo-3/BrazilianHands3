@@ -2,6 +2,7 @@ import React from 'react'
 import './index.scss'
 import ContactForm from '../../components/contactForm/contactForm'
 import NavBar from '../../components/navBar/navBar'
+import Footer from '../../components/footer/footer'
 
 const ContactUS = () => {
   return (
@@ -20,6 +21,7 @@ const ContactUS = () => {
         </section>
       </section>
       <ContactForm />
+      <Footer/>
     </div>
   )
 }
