@@ -1,6 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
+import * as XLSX from 'xlsx';
+import { format } from 'date-fns';
 import './index.scss';
-import TeamForm from '../../components/teamForm/teamForm';
+import NavBar from '../../components/navBar/navBar';
 
 const AdmPainel = () => {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
@@ -8,9 +10,11 @@ const AdmPainel = () => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [data, setData] = useState([]);
-  const [token, setToken] = useState(''); // Armazenar o token JWT
+  const [token, setToken] = useState('');
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
+  const [filterProvider, setFilterProvider] = useState(true);
+  const [filterClient, setFilterClient] = useState(true);
 
   // Função para realizar login
   const handleLogin = async (e) => {
@@ -29,9 +33,9 @@ const AdmPainel = () => {
       }
 
       const data = await response.json();
-      setToken(data.token); // Armazena o token JWT
-      setIsAuthenticated(true); 
-      fetchData(data.token); // Busca os dados do painel com o token JWT
+      setToken(data.token);
+      setIsAuthenticated(true);
+      fetchData(data.token);
     } catch (error) {
       setError(error.message);
     }
@@ -42,7 +46,7 @@ const AdmPainel = () => {
     try {
       const response = await fetch('https://backendbhcdnc.onrender.com/api/admin', {
         headers: {
-          Authorization: `Bearer ${jwtToken}`, // Adiciona o token JWT no cabeçalho da requisição
+          Authorization: `Bearer ${jwtToken}`,
         },
       });
 
@@ -57,84 +61,167 @@ const AdmPainel = () => {
     }
   };
 
+  // Função para excluir um dado
+  const handleDelete = async (id) => {
+    if (window.confirm('Você tem certeza que deseja excluir este item?')) {
+      try {
+        const response = await fetch(`https://backendbhcdnc.onrender.com/api/admin/${id}`, {
+          method: 'DELETE',
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+
+        if (!response.ok) {
+          throw new Error('Erro ao excluir o dado');
+        }
+
+        // Atualiza os dados após exclusão
+        fetchData(token);
+      } catch (error) {
+        console.error('Erro ao excluir o dado:', error);
+      }
+    }
+  };
+
+  // Função para exportar os dados para Excel
+  const exportToExcel = () => {
+    const filteredData = data.filter(item =>
+      (filterProvider && item.userType === 'provider') ||
+      (filterClient && item.userType === 'client')
+    );
+
+    const exportData = filteredData.map(item => ({
+      Contato: item.Contact,
+      Email: item.Email,
+      Telefone: item.Phone,
+      Eircode: item.Eircode,
+      Endereço: item.Address,
+      Número: item.AddressNumber,
+      Complemento: item.Complement,
+      Serviços: item.Services,
+      'Data de Cadastro': format(new Date(item.createdAt), 'dd/MM/yyyy'), // Formatação da data aqui
+    }));
+
+    const ws = XLSX.utils.json_to_sheet(exportData);
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Dados');
+    XLSX.writeFile(wb, 'dados_exportados.xlsx');
+  };
+
   // Paginação
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
-  const totalPages = Math.ceil(data.length / itemsPerPage);
+
+  const filteredData = data.filter(item =>
+    (filterProvider && item.userType === 'provider') ||
+    (filterClient && item.userType === 'client')
+  );
+
+  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
   return (
     <div>
-      <h1>Painel Administrativo</h1>
+      <NavBar />
+      <div className='login'>
+        <h1>Painel Administrativo</h1>
 
-      {!isAuthenticated ? (
-        <form onSubmit={handleLogin}>
-          <h2>Login</h2>
-          <input
-            type="text"
-            placeholder="Username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <button type="submit">Login</button>
-          {error && <p className="error">{error}</p>}
-        </form>
-      ) : (
-        <div>
-          <table>
-            <thead>
-              <tr>
-                <th>Contato</th>
-                <th>Email</th>
-                <th>Telefone</th>
-                <th>Eircode</th>
-                <th>Endereço</th>
-                <th>Número</th>
-                <th>Complemento</th>
-                <th>Serviços</th>
-              </tr>
-            </thead>
-            <tbody>
-              {currentItems.map((item, index) => (
-                <tr key={index}>
-                  <td>{item.Contact}</td>
-                  <td>{item.Email}</td>
-                  <td>{item.Phone}</td>
-                  <td>{item.Eircode}</td>
-                  <td>{item.Address}</td>
-                  <td>{item.AddressNumber}</td>
-                  <td>{item.Complement}</td>
-                  <td>{item.Services}</td>
+        {!isAuthenticated ? (
+          <form onSubmit={handleLogin}>
+            <h2>Login</h2>
+            <input
+              type="text"
+              placeholder="Username"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              required
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button type="submit">Login</button>
+            {error && <p className="error">{error}</p>}
+          </form>
+        ) : (
+          <div>
+            <div className="filters">
+              <label>
+                <input
+                  type="checkbox"
+                  checked={filterProvider}
+                  onChange={() => setFilterProvider(prev => !prev)}
+                />
+                Prestadores
+              </label>
+              <label>
+                <input
+                  type="checkbox"
+                  checked={filterClient}
+                  onChange={() => setFilterClient(prev => !prev)}
+                />
+                Clientes
+              </label>
+            </div>
+
+            <table className='tabela'>
+              <thead>
+                <tr className='tabela__info'>
+                  <th className='inf'>Contato</th>
+                  <th className='inf'>Email</th>
+                  <th className='inf'>Telefone</th>
+                  <th className='inf'>Eircode</th>
+                  <th>Endereço</th>
+                  <th>Número</th>
+                  <th>Complemento</th>
+                  <th>Serviços</th>
+                  <th>Data de Cadastro</th>
+                  <th>Ações</th> {/* Coluna de ações para o botão de excluir */}
                 </tr>
+              </thead>
+              <tbody>
+                {currentItems.map((item, index) => (
+                  <tr key={index}>
+                    <td>{item.Contact}</td>
+                    <td>{item.Email}</td>
+                    <td>{item.Phone}</td>
+                    <td>{item.Eircode}</td>
+                    <td>{item.Address}</td>
+                    <td>{item.AddressNumber}</td>
+                    <td>{item.Complement}</td>
+                    <td>{item.Services}</td>
+                    <td>{format(new Date(item.createdAt), 'dd/MM/yyyy')}</td>
+                    <td>
+                      <button onClick={() => handleDelete(item._id)}>Excluir</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+
+            <button onClick={exportToExcel}>Exportar para Excel</button>
+
+            <div className="pagination">
+              {Array.from({ length: totalPages }, (_, index) => (
+                <button
+                  key={index + 1}
+                  onClick={() => setCurrentPage(index + 1)}
+                  className={currentPage === index + 1 ? 'active' : ''}
+                >
+                  {index + 1}
+                </button>
               ))}
-            </tbody>
-          </table>
+            </div>
 
-          {/* Botões de paginação */}
-          <div className="pagination">
-            {Array.from({ length: totalPages }, (_, index) => (
-              <button
-                key={index + 1}
-                onClick={() => setCurrentPage(index + 1)}
-                className={currentPage === index + 1 ? 'active' : ''}
-              >
-                {index + 1}
-              </button>
-            ))}
+            <button onClick={() => fetchData(token)}>Atualizar</button>
           </div>
+        )}
+      </div>
 
-          {/* Botão de refresh */}
-          <button onClick={() => fetchData(token)}>Atualizar</button>
-        </div>
-      )}
     </div>
   );
 };
