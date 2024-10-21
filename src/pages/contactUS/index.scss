@@ -1,5 +1,8 @@
 @use '../../styles/var' as *;
 
+body{
+    background-color: $primaryBackgroundColor !important;
+}
 .text-JoinOurTeam {
     display: flex;
     align-items: center;
@@ -7,4 +10,10 @@
     flex-direction: column;
     margin: 2.375rem 2rem;
     text-align: center;
+    
+}
+.display{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
 }
