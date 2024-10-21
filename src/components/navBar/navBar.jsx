@@ -25,6 +25,7 @@ const NavBar = () => {
             <li><Link to='/contactUS'>Contat Us</Link></li>
             <li><Link to='/joinOurTeam'>Join Our Team</Link></li>
             <li><Link to='/privacyPolicy'>Privacy Policy</Link></li>
+            <li><Link to='/1234'>Login Adm</Link></li>
           </ul>
         </nav>
       </header>
