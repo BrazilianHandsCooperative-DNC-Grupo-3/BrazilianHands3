@@ -3,14 +3,13 @@ import './index.scss';
 import TeamForm from '../../components/teamForm/teamForm';
 
 const AdmPainel = () => {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-  const [data, setData] = useState([]);
-  const [token, setToken] = useState(''); // Armazenar o token JWT
-  const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage] = useState(10);
+  const [isAuthenticated, setIsAuthenticated] = useState(false); // Estado de autenticação
+  const [username, setUsername] = useState(''); // Input de username
+  const [password, setPassword] = useState(''); // Input de password
+  const [error, setError] = useState(''); // Mensagens de erro
+  const [data, setData] = useState([]); // Estado para os dados do painel
+  const [currentPage, setCurrentPage] = useState(1); // Estado para a paginação
+  const [itemsPerPage] = useState(10); // Itens por página
 
   // Função para realizar login
   const handleLogin = async (e) => {
@@ -29,27 +28,17 @@ const AdmPainel = () => {
       }
 
       const data = await response.json();
-      setToken(data.token); // Armazena o token JWT
-      setIsAuthenticated(true); 
-      fetchData(data.token); // Busca os dados do painel com o token JWT
+      setIsAuthenticated(true); // Atualiza autenticação para verdadeiro após login bem-sucedido
+      fetchData(); // Busca os dados do painel após login
     } catch (error) {
       setError(error.message);
     }
   };
 
   // Função para buscar os dados do painel
-  const fetchData = async (jwtToken) => {
+  const fetchData = async () => {
     try {
-      const response = await fetch('https://backendbhcdnc.onrender.com/api/admin', {
-        headers: {
-          Authorization: `Bearer ${jwtToken}`, // Adiciona o token JWT no cabeçalho da requisição
-        },
-      });
-
-      if (!response.ok) {
-        throw new Error('Erro ao buscar os dados');
-      }
-
+      const response = await fetch('https://backendbhcdnc.onrender.com/api/form');
       const result = await response.json();
       setData(result);
     } catch (error) {
@@ -66,7 +55,7 @@ const AdmPainel = () => {
   return (
     <div>
       <h1>Painel Administrativo</h1>
-
+      
       {!isAuthenticated ? (
         <form onSubmit={handleLogin}>
           <h2>Login</h2>
@@ -132,7 +121,7 @@ const AdmPainel = () => {
           </div>
 
           {/* Botão de refresh */}
-          <button onClick={() => fetchData(token)}>Atualizar</button>
+          <button onClick={fetchData}>Atualizar</button>
         </div>
       )}
     </div>
