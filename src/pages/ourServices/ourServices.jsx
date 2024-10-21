@@ -2,6 +2,7 @@ import React from 'react';
 import './index.scss';
 import CardService from '../../components/cardService/cardService.jsx';
 import NavBar from '../../components/navBar/navBar.jsx';
+import BotaoWhats from '../../components/Botaowhatsapp/botaoWhatsapp.jsx'
 
 const services = [
   {
@@ -46,6 +47,7 @@ const OurServices = () => {
   return (
     <div>
       <NavBar/>
+      <BotaoWhats/>
       <div className='services_page'>
         <div className='services_banner'>
           <h1>Explore Our Exceptional Services!</h1>
