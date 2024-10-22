@@ -1,1 +1,252 @@
 @use '../../styles/var' as *;
+
+.container {
+    padding-top: 10vw;
+    display: flex;
+    flex-direction: column;
+
+    &__about-us {
+        background-image: url(../../../public/aboutUs.svg);
+        background-position: center;
+        display: flex;
+        justify-content: center;
+
+        div {
+            margin: 5vw;
+            text-align: center;
+            width: 60vw;
+            color: $primaryFontColor;
+
+            h1 {
+                text-align: center;
+                font-size: 4.0vw;
+                margin: 0 0 10% 0;
+            }
+
+            p {
+                font-size: 1.5vw;
+                margin-bottom: 5%;
+                text-align: justify;
+            }
+        }
+    }
+
+    &__mission {
+        background-color: $tertiaryBackgroundColor;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10% 15vw 5% 15vw;
+            width: 70vw;
+
+            h2 {
+                font-size: 2.8vw;
+                font-weight: $font-bold;
+                margin-bottom: 3%;
+            }
+
+            p {
+                font-size: 1.7vw;
+                font-weight: $font-regular;
+                margin-bottom: 10%;
+                text-align: justify;
+            }
+        }
+
+    }
+
+    &__vision {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 80vw;
+        margin: 10vw;
+
+        h2 {
+            font-size: 3.5vw;
+            font-weight: $font-bold;
+            margin-bottom: 5%;
+        }
+
+        p {
+            font-size: 2vw;
+            font-weight: $font-light;
+            margin-bottom: 5%;
+            text-align: left;
+        }
+    }
+
+    &__missionb {
+        background-color: $tertiaryBackgroundColor;
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10% 15vw 10% 15vw;
+            width: 70vw;
+
+            h2 {
+                text-align: center;
+                font-size: 3.5vw;
+                font-weight: $font-bold;
+                margin-bottom: 7%;
+            }
+
+            p {
+                font-size: 1.7vw;
+                font-weight: $font-regular;
+                text-align: justify;
+            }
+        }
+
+    }
+
+    &__visionb {
+        width: 80vw;
+        margin: 10vw;
+
+        h2 {
+            text-align: center;
+            font-size: 3.5vw;
+            font-weight: $font-bold;
+            margin-bottom: 10%;
+        }
+
+        p {
+            text-align: center;
+            font-size: 2vw;
+            font-weight: $font-regular;
+            margin-bottom: 10%;
+            text-align: center;
+        }
+
+        .contactButton {
+            background-color: $secondaryBlue;
+            border: none;
+            border-radius: 1vw;
+            color: $primaryFontColor;
+            font-weight: $font-bold;
+            font-size: 1.5vw;
+            height: 4vw;
+            width: 80vw;
+
+            &:hover {
+                background-color: $hoverBlue;
+                box-shadow: 2px 5px 0px 0px $shadowBlue;
+                transform: translateY(-7px);
+                transition-duration: 0.5s;
+                cursor: pointer;
+            }
+        }
+    }
+
+}
+
+@media only screen and (max-width: 1024px) {
+    .container__about-us {
+        padding-top: 7%;
+    }
+
+    .contactButton {
+        font-size: 3.5vw;
+        height: 8vw;
+        width: 80vw;
+        border-radius: 2vw;
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .container {
+        padding-top: 10vw;
+
+        &__about-us {
+
+            div {
+                margin: 5vw;
+                width: 80vw;
+                color: $primaryFontColor;
+
+                h1 {
+                    text-align: center;
+                    font-size: 4.5vw;
+                }
+
+                p {
+                    font-size: 3vw;
+                }
+            }
+        }
+
+        &__mission {
+
+            div {
+                margin: 10% 15vw 5% 15vw;
+                width: 70vw;
+
+                h2 {
+                    font-size: 4vw;
+                }
+
+                p {
+                    font-size: 3vw;
+                }
+            }
+
+        }
+
+        &__vision {
+            width: 80vw;
+            margin: 10vw;
+
+            h2 {
+                font-size: 4vw;
+            }
+
+            p {
+                font-size: 3vw;
+            }
+        }
+
+        &__missionb {
+            background-color: $tertiaryBackgroundColor;
+
+            div {
+                width: 70vw;
+
+                h2 {
+                    font-size: 4vw;
+                }
+
+                p {
+                    font-size: 3vw;
+                }
+            }
+
+        }
+
+        &__visionb {
+            width: 80vw;
+            margin: 10vw;
+
+            h2 {
+                font-size: 3.5vw;
+
+            }
+
+            p {
+                font-size: 2vw;
+            }
+
+            .contactButton {
+                border-radius: 2vw;
+                font-size: 2vw;
+                height: 5vw;
+            }
+        }
+
+    }
+}

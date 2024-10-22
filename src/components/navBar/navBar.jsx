@@ -19,8 +19,7 @@ const NavBar = () => {
           <button className="hamburguer" onClick={handleHamburguerClick}></button>
           <ul className="nav-list">
             <li><Link to='/'>Home</Link></li>
-            {/*<li><Link to='/aboutUS'>About Us</Link></li>
-            <li><Link to='/missionVision'>Mission and Vision</Link></li>*/}
+            <li><Link to='/aboutUS'>About Us</Link></li>
             <li><Link to='/ourServices'>Our Services</Link></li>
             <li><Link to='/contactUS'>Contat Us</Link></li>
             <li><Link to='/joinOurTeam'>Join Our Team</Link></li>
