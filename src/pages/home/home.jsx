@@ -3,6 +3,8 @@ import './index.scss';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import NavBar from '../../components/navBar/navBar.jsx';
 import Footer from '../../components/footer/footer.jsx';
+import BotaoWhatsapp from '../../components/Botaowhatsapp/botaoWhatsapp.jsx';
+
 
 function Home() {
   const [isMobile, setIsMobile] = useState(false);
@@ -25,6 +27,7 @@ function Home() {
   return (
     <section>
       <NavBar />
+      <BotaoWhatsapp/>
       <div className="container">
         <div className="container_Itens">
           <section className="container_Itens_Section1">

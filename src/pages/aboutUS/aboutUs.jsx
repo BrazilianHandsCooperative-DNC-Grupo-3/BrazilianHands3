@@ -2,11 +2,13 @@ import './index.scss'
 import NavBar from '../../components/navBar/navBar.jsx'
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Footer from '../../components/footer/footer.jsx'
+import BotaoWhatsapp from '../../components/Botaowhatsapp/botaoWhatsapp.jsx';
 
 const AboutUs = () => {
   return (
     <div>
       <NavBar />
+      <BotaoWhatsapp/>
       <section className='container'>
         <div>
           <div className="container__about-us">

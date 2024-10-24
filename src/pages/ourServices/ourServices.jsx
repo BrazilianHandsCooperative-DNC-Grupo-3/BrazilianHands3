@@ -3,7 +3,7 @@ import './index.scss';
 import NavBar from '../../components/navBar/navBar.jsx'
 import CardService from '../../components/cardService/cardService.jsx';
 import Footer from '../../components/footer/footer'
-
+import BotaoWhatsapp from '../../components/Botaowhatsapp/botaoWhatsapp.jsx';
 
 const services = [
   {
@@ -48,6 +48,7 @@ const OurServices = () => {
   return (
     <div>
       <NavBar />
+      <BotaoWhatsapp/>
       <div className='services_page'>
         <div className='services_banner'>
           <h1>Explore Our Exceptional Services!</h1>
