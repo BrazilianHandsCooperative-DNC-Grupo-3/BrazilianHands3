@@ -1,0 +1,15 @@
+@use '../../styles/var' as *;
+
+
+.botao_section {
+    position: fixed;
+    bottom: 2vw;
+    right: 2vw;
+
+    & img{
+        width: 3.4vw;
+        height: auto;
+        transition: transform 0.3s;
+        cursor: pointer;
+    }
+}
