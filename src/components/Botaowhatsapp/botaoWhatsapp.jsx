@@ -2,13 +2,13 @@ import React from 'react'
 import './index.scss'
 
 
-const botaoWhatsapp = () => {
+const BotaoWhatsapp = () => {
   return (
     <div className='botao_section'>
-        <a href="#"><img src="/whatsapp.svg" alt="Entre em contato Conosco" /></a>
+        <a href="https://wa.link/qijh6d"><img src="/whatsapp.svg" alt="Entre em contato Conosco" /></a>
 
     </div>
   )
 }
 
-export default botaoWhatsapp
+export default BotaoWhatsapp
