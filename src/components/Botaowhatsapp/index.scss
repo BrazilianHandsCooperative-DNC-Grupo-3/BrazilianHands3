@@ -13,3 +13,14 @@
         cursor: pointer;
     }
 }
+
+@media (max-width: 768px) {
+    .botao_section {
+        bottom: 5vw;
+        right: 2vw;
+    
+        & img{
+            width: 12vw;
+        }
+    }
+}
