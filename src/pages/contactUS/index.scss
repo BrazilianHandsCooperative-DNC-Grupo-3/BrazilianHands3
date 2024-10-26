@@ -25,6 +25,17 @@ body {
     gap: 30px;
 }
 
+@media (min-width: 1700px) {
+    .container {        
+        h1{
+            font-size: 48px;
+        }
+        p{
+            font-size: 40px;
+        }
+    }
+}
+
 @media (max-width: 767px) {
     .container {
         padding-top: 15vw !important;

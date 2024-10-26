@@ -25,7 +25,23 @@
         font-size: 20px;
     }
 }
-
+@media (min-width: 1700px) {
+    .image-ReturnTeam {
+        height: 1000px;
+    }
+    
+    .text-ReturnTeam {
+        padding-top: 15vw;
+    
+        h1 {
+            font-size: 48px;
+        }
+    
+        p {
+            font-size: 38px;
+        }
+    }
+}
 @media (max-width: 767px) {
     .image-ReturnTeam {
         background-image: url('../../../public/imageReturnTeam.svg');

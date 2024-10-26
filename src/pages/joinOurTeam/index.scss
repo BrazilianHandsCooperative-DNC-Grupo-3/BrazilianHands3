@@ -8,4 +8,15 @@
     flex-direction: column;
     margin: 2.375rem 2rem;
     text-align: center;
+
+    @media (min-width: 1700px) {
+        .container {        
+            h1{
+                font-size: 48px;
+            }
+            p{
+                font-size: 40px;
+            }
+        }
+    }
 }

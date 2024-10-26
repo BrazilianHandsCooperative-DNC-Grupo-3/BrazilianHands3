@@ -17,7 +17,7 @@
             font-weight: $font-bold;
             color: $primaryFontColor;
             border: none;
-            border-radius: 2.2vw;
+            border-radius: 1000vw;
             height: 6vw;
             font-size: 3vw;
 
@@ -79,7 +79,7 @@
         input {
             background-color: $inputBackgroundColor;
             border: none;
-            border-radius: 1vw;
+            border-radius: 1000vw;
             height: 4.0vw;
             font-size: 2vw;
             padding: 0.5vw;
@@ -88,7 +88,49 @@
         }
     }
 }
+@media (min-width: 1700px) {
+    .Team {
 
+        form {
+    
+            button {
+                margin-top: 3vw;
+                width: 20vw;
+                height: 3vw;
+                font-size: 28px;
+
+            
+                &:hover {
+                    background-color: $hoverBlue;
+                    box-shadow: 2px 5px 0px 0px $shadowBlue;
+                    transform: translateY(-2px);
+                    transition-duration: 0.4s;
+                    cursor: pointer;
+                }
+            }
+        }
+    
+        &_Group {
+
+    
+            label {
+                font-size: 30px;
+            }
+    
+            &>div {
+                margin-top: 2vw;
+            }
+    
+            &_Address,
+            &_Services {
+                input {
+                    width: 50vw;
+                }
+            }
+        }
+    }
+   
+}
 @media (max-width: 768px) {
     .Team {
 
