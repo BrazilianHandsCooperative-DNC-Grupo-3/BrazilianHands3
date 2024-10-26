@@ -2,7 +2,7 @@
 
 @media (min-width: 1100px), (max-width: 1698px) {
     .container {
-        padding-top: 7vw; // Mantendo o padding-top para a navbar fixa
+        padding-top: 5vw !important; // Mantendo o padding-top para a navbar fixa
     
         .container_Itens {
             button {
@@ -28,7 +28,7 @@
                 background-image: url('../../../public/Section1Desktop.svg');
                 background-position: center;
                 background-repeat: repeat-x;
-                height: 1069px;
+                height: 60rem;
                 color: $primaryFontColor;
     
                 &_Content {
@@ -40,7 +40,7 @@
                     gap: 5vw;
     
                     &_1 {
-                        margin-top: 9vw;
+                        margin-top: 15vw;
                         display: flex;
                         flex-direction: column;
                         gap: 1vw;
@@ -79,7 +79,6 @@
             }
     
             &_Section2 {
-                background-color: $tertiaryBackgroundColor;
                 width: 100vw;
                 height: 70vw;
                 align-items: center;
@@ -176,7 +175,7 @@
 
     @media (min-width: 1700px) {
         .container {
-            padding-top: 7vw; // Mantendo o padding-top para a navbar fixa
+            padding-top: 5vw; // Mantendo o padding-top para a navbar fixa
         
             .container_Itens {
                 button {
@@ -234,11 +233,8 @@
         
                 &_Section2 {
                     width: 100vw;
-                    height: 1500px;
-                    margin-bottom: 00px;
-                    margin-top: -200px;
-
-        
+                    height: 100rem;
+                    
                     &_display {
                         gap: 8vw;
         

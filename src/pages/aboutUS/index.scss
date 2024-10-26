@@ -7,8 +7,8 @@
 
     &__about-us {
         background-image: url(../../../public/aboutUs.svg);
+        width: 100vw;
         background-position: center;
-        background-repeat: repeat !important;
         display: flex;
         justify-content: center;
 
@@ -20,20 +20,21 @@
 
             h1 {
                 text-align: center;
-                font-size: 4.0vw;
+                font-size: 3.0vw;
                 margin: 0 0 10% 0;
             }
 
             p {
-                font-size: 1.5vw;
+                font-size: 1.3vw;
                 margin-bottom: 5%;
                 text-align: justify;
+                line-height: 5rem;
             }
         }
     }
 
     &__mission {
-        background-color: $tertiaryBackgroundColor;
+        background-color: $secondaryBackgroundColor;
 
         div {
             display: flex;
@@ -43,15 +44,16 @@
             width: 70vw;
 
             h2 {
-                font-size: 2.8vw;
+                font-size: 2vw;
                 font-weight: $font-bold;
                 margin-bottom: 3%;
             }
 
             p {
-                font-size: 1.7vw;
+                font-size: 1.3vw;
                 font-weight: $font-regular;
                 margin-bottom: 10%;
+                line-height: 5rem;
                 text-align: justify;
             }
         }
@@ -63,25 +65,26 @@
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 80vw;
-        margin: 10vw;
+        width: 70vw;
+        margin: 5vw 30vw 5vw 30vw;
 
         h2 {
-            font-size: 3.5vw;
+            font-size: 3vw;
             font-weight: $font-bold;
             margin-bottom: 5%;
         }
 
         p {
-            font-size: 2vw;
+            font-size: 1.5vw;
             font-weight: $font-light;
             margin-bottom: 5%;
+            line-height: 5rem;
             text-align: left;
         }
     }
 
     &__missionb {
-        background-color: $tertiaryBackgroundColor;
+        background-color: $secondaryBackgroundColor;
 
         div {
             display: flex;
@@ -92,22 +95,23 @@
 
             h2 {
                 text-align: center;
-                font-size: 3.5vw;
+                font-size: 3vw;
                 font-weight: $font-bold;
                 margin-bottom: 7%;
             }
 
             p {
-                font-size: 1.7vw;
+                font-size: 1.5vw;
                 font-weight: $font-regular;
                 text-align: justify;
+                line-height: 5rem;
             }
         }
 
     }
 
     &__visionb {
-        width: 80vw;
+        width: 40vw;
         margin: 10vw;
 
         h2 {
@@ -123,6 +127,7 @@
             font-weight: $font-regular;
             margin-bottom: 10%;
             text-align: center;
+            line-height: 5rem;
         }
 
         .contactButton {
@@ -133,7 +138,7 @@
             font-weight: $font-bold;
             font-size: 1.5vw;
             height: 4vw;
-            width: 80vw;
+            width: 40vw;
 
             &:hover {
                 background-color: $hoverBlue;
