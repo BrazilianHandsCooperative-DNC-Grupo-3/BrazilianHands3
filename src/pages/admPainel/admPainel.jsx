@@ -15,10 +15,12 @@ const AdmPainel = () => {
   const [itemsPerPage] = useState(10);
   const [filterProvider, setFilterProvider] = useState(true);
   const [filterClient, setFilterClient] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   // Função para realizar login
   const handleLogin = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     try {
       const response = await fetch('https://backendbhcdnc.onrender.com/api/login', {
         method: 'POST',
@@ -38,11 +40,14 @@ const AdmPainel = () => {
       fetchData(data.token);
     } catch (error) {
       setError(error.message);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   // Função para buscar os dados do painel
   const fetchData = async (jwtToken) => {
+    setIsLoading(true);
     try {
       const response = await fetch('https://backendbhcdnc.onrender.com/api/admin', {
         headers: {
@@ -58,11 +63,14 @@ const AdmPainel = () => {
       setData(result);
     } catch (error) {
       console.error('Erro ao buscar os dados:', error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
   // Função para excluir um dado
   const handleDelete = async (id) => {
+    setIsLoading(true);
     if (window.confirm('Você tem certeza que deseja excluir este item?')) {
       try {
         const response = await fetch(`https://backendbhcdnc.onrender.com/api/admin/${id}`, {
@@ -80,6 +88,8 @@ const AdmPainel = () => {
         fetchData(token);
       } catch (error) {
         console.error('Erro ao excluir o dado:', error);
+      } finally {
+        setIsLoading(false);
       }
     }
   };
@@ -122,50 +132,62 @@ const AdmPainel = () => {
   const totalPages = Math.ceil(filteredData.length / itemsPerPage);
 
   return (
-    <div>
+    <div className={isLoading ? 'loading-cursor' : ''}>
       <NavBar />
       <div className='login'>
         <h1>Painel Administrativo</h1>
 
         {!isAuthenticated ? (
           <form onSubmit={handleLogin}>
-            <h2>Login</h2>
-            <input
-              type="text"
-              placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
-              required
-            />
-            <input
-              type="password"
-              placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-            <button type="submit">Login</button>
+            <div className='login__text'>
+              <h2>Login</h2>
+              <p>Area restrita a colaboradores da empresa</p>
+            </div>
+
+            <div className='login__Container'>
+              <div><input
+                type="text"
+                placeholder="Informe o nome de usuario administrativo"
+                value={username}
+                onChange={(e) => setUsername(e.target.value)}
+                required
+              />
+              </div>
+              <div>
+                <input
+                  type="password"
+                  placeholder="Informe sua senha"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+              </div>
+              <button type="submit">Login</button>
+            </div>
             {error && <p className="error">{error}</p>}
           </form>
         ) : (
           <div>
             <div className="filters">
-              <label>
+              <div className='filters__inp'>
                 <input
                   type="checkbox"
                   checked={filterProvider}
                   onChange={() => setFilterProvider(prev => !prev)}
                 />
-                Prestadores
-              </label>
-              <label>
+                <label>Prestadores</label>
+              </div>
+              <div className='filters__inp'>
                 <input
                   type="checkbox"
                   checked={filterClient}
                   onChange={() => setFilterClient(prev => !prev)}
                 />
-                Clientes
-              </label>
+                <label>
+                  Clientes
+                </label>
+              </div>
+
             </div>
 
             <table className='tabela'>
@@ -203,7 +225,7 @@ const AdmPainel = () => {
               </tbody>
             </table>
 
-            <button onClick={exportToExcel}>Exportar para Excel</button>
+            <button className='export'onClick={exportToExcel}>Exportar para Excel</button>
 
             <div className="pagination">
               {Array.from({ length: totalPages }, (_, index) => (
@@ -217,7 +239,7 @@ const AdmPainel = () => {
               ))}
             </div>
 
-            <button onClick={() => fetchData(token)}>Atualizar</button>
+            <button className='att' onClick={() => fetchData(token)}>Atualizar</button>
           </div>
         )}
       </div>
