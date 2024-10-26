@@ -65,9 +65,8 @@ const PrivacyPolicy = () => {
           <h3 className='poli'>8. Contact</h3>
           <p className='spriv'>
             If you have any questions or concerns about this Privacy Policy or the treatment of your personal information, contact us:<br/>
-            Email: [your-email@cooperative.ie]<br/>
-            Phone: [phone number]<br/>
-            Address: [cooperative address]
+            Email: brazilianhandscooperative@gmail.com<br/>
+            Phone: +353833471038
           </p>
 
           <h3 className='poli'>9. Acceptance</h3>

@@ -8,6 +8,7 @@
     &__about-us {
         background-image: url(../../../public/aboutUs.svg);
         background-position: center;
+        background-repeat: repeat !important;
         display: flex;
         justify-content: center;
 
@@ -127,7 +128,7 @@
         .contactButton {
             background-color: $secondaryBlue;
             border: none;
-            border-radius: 1vw;
+            border-radius: 1000vw;
             color: $primaryFontColor;
             font-weight: $font-bold;
             font-size: 1.5vw;

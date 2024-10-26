@@ -12,6 +12,7 @@
                 font-weight: $font-bold;
                 font-size: 1.5vw;
                 height: 4vw;
+                border-radius: 1000vw;
     
                 &:hover {
                     background-color: $hoverBlue;
@@ -180,6 +181,7 @@
             .container_Itens {
                 button {
                     font-size: 1.5vw;
+                    border-radius: 1000px !important;
                     height: 3vw;
                 }
         
