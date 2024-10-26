@@ -1,175 +1,303 @@
 @use '../../styles/var' as *;
 
-.container {
-    padding-top: 7vw; // Mantendo o padding-top para a navbar fixa
-
-    .container_Itens {
-        button {
-            background-color: $secondaryBlue;
-            border: none;
-            color: $primaryFontColor;
-            font-weight: $font-bold;
-            font-size: 1.5vw;
-            height: 4vw;
-
-            &:hover {
-                background-color: $hoverBlue;
-                box-shadow: 2px 5px 0px 0px $shadowBlue;
-                transform: translateY(-2px);
-                transition-duration: 0.4s;
-                cursor: pointer;
+@media (min-width: 1100px), (max-width: 1698px) {
+    .container {
+        padding-top: 7vw; // Mantendo o padding-top para a navbar fixa
+    
+        .container_Itens {
+            button {
+                background-color: $secondaryBlue;
+                border: none;
+                color: $primaryFontColor;
+                font-weight: $font-bold;
+                font-size: 1.5vw;
+                height: 4vw;
+    
+                &:hover {
+                    background-color: $hoverBlue;
+                    box-shadow: 2px 5px 0px 0px $shadowBlue;
+                    transform: translateY(-2px);
+                    transition-duration: 0.4s;
+                    cursor: pointer;
+                }
             }
-        }
-
-
-        &_Section1 {
-            background-image: url('../../../public/Section1Desktop.svg');
-            background-position: center;
-            background-repeat: repeat-x;
-            height: 1069px;
-            color: $primaryFontColor;
-
-            &_Content {
-                display: flex;
-                flex-direction: column;
-                gap: 3vw;
-                margin-left: 5vw;
-                width: 49vw;
-                gap: 5vw;
-
-                &_1 {
-                    margin-top: 9vw;
+    
+    
+            &_Section1 {
+                background-image: url('../../../public/Section1Desktop.svg');
+                background-position: center;
+                background-repeat: repeat-x;
+                height: 1069px;
+                color: $primaryFontColor;
+    
+                &_Content {
                     display: flex;
                     flex-direction: column;
-                    gap: 1vw;
-
-                    img {
-                        width: 13vw;
+                    gap: 3vw;
+                    margin-left: 5vw;
+                    width: 49vw;
+                    gap: 5vw;
+    
+                    &_1 {
+                        margin-top: 9vw;
+                        display: flex;
+                        flex-direction: column;
+                        gap: 1vw;
+    
+                        img {
+                            width: 13vw;
+                        }
+    
+                        h2 {
+                            font-size: 2.3vw;
+                            font-weight: $font-semibold;
+                        }
                     }
-
-                    h2 {
-                        font-size: 2.3vw;
-                        font-weight: $font-semibold;
+    
+                    &_2 {
+                        h1 {
+                            font-size: 4.2vw;
+                            font-weight: $font-bold;
+                        }
+    
+                        p {
+                            font-size: 3vw;
+                            font-weight: $font-light;
+                        }
+                    }
+    
+    
+                    button {
+                        margin-top: 8vw;
+                        border-radius: 1vw;
+                        width: 16vw;
                     }
                 }
-
-                &_2 {
-                    h1 {
-                        font-size: 4.2vw;
-                        font-weight: $font-bold;
-                    }
-
-                    p {
-                        font-size: 3vw;
-                        font-weight: $font-light;
-                    }
-                }
-
-
-                button {
-                    margin-top: 8vw;
-                    border-radius: 1vw;
-                    width: 16vw;
-                }
+    
+    
             }
-
-
-        }
-
-        &_Section2 {
-            background-color: $tertiaryBackgroundColor;
-            width: 100vw;
-            height: 70vw;
-            align-items: center;
-            display: flex;
-
-            &_display {
-                display: flex;
-                flex-direction: row;
+    
+            &_Section2 {
+                background-color: $tertiaryBackgroundColor;
+                width: 100vw;
+                height: 70vw;
                 align-items: center;
-                justify-content: space-between;
-                margin-right: 2vw;
-                margin-left: 2vw;
-                gap: 10vw;
-
+                display: flex;
+    
+                &_display {
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-right: 2vw;
+                    margin-left: 2vw;
+                    gap: 10vw;
+    
+                    &_Content {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        gap: 3vw;
+                        width: 35vw;
+    
+                        &_text {
+                            display: flex;
+                            flex-direction: column;
+                            gap: 2vw;
+                            color: $tertiaryFontColor;
+                            text-align: center;
+    
+                            h3 {
+                                font-size: 1.8vw;
+                                font-weight: $font-semibold
+                            }
+    
+                            p {
+                                font-size: 1.5vw;
+                                font-weight: $font-light;
+                            }
+                        }
+    
+                        button {
+                            border-radius: 1vw;
+                            width: 30vw;
+                        }
+                    }
+    
+                    img {
+                        width: 48vw;
+                    }
+    
+                }
+    
+            }
+    
+            &_Section3 {
+                background-image: url('../../../public/Section3Desktop.svg');
+                background-position: center;
+                background-repeat: repeat-x;
+                height: 45vw;
+                display: flex;
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+    
+                button {
+                    margin-top: 5vw;
+                    border-radius: 2vw;
+                    width: 25vw;
+                }
+    
                 &_Content {
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    gap: 3vw;
-                    width: 35vw;
-
-                    &_text {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 2vw;
-                        color: $tertiaryFontColor;
-                        text-align: center;
-
-                        h3 {
-                            font-size: 1.8vw;
-                            font-weight: $font-semibold
-                        }
-
-                        p {
-                            font-size: 1.5vw;
-                            font-weight: $font-light;
-                        }
+                    text-align: center;
+                    color: $primaryFontColor;
+                    width: 60vw;
+                    gap: 5vw;
+    
+                    h2 {
+                        font-size: 3.3vw;
+                        font-weight: $font-bold;
                     }
-
-                    button {
-                        border-radius: 1vw;
-                        width: 30vw;
+    
+                    p {
+                        font-size: 2.8vw;
+                        font-weight: $font-regular;
                     }
-                }
-
-                img {
-                    width: 48vw;
-                }
-
-            }
-
-        }
-
-        &_Section3 {
-            background-image: url('../../../public/Section3Desktop.svg');
-            background-position: center;
-            background-repeat: repeat-x;
-            height: 45vw;
-            display: flex;
-            flex-direction: column;
-            text-align: center;
-            align-items: center;
-            justify-content: center;
-
-            button {
-                margin-top: 5vw;
-                border-radius: 2vw;
-                width: 25vw;
-            }
-
-            &_Content {
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-                color: $primaryFontColor;
-                width: 60vw;
-                gap: 5vw;
-
-                h2 {
-                    font-size: 3.3vw;
-                    font-weight: $font-bold;
-                }
-
-                p {
-                    font-size: 2.8vw;
-                    font-weight: $font-regular;
                 }
             }
         }
+    
     }
 
+    @media (min-width: 1700px) {
+        .container {
+            padding-top: 7vw; // Mantendo o padding-top para a navbar fixa
+        
+            .container_Itens {
+                button {
+                    font-size: 1.5vw;
+                    height: 3vw;
+                }
+        
+        
+                &_Section1 {
+                    height: 1400px;
+        
+                    &_Content {
+                        gap: 3vw;
+                        margin-left: 5vw;
+                        width: 49vw;
+                        gap: 5vw;
+        
+                        &_1 {
+                            margin-top: 1vw;
+                            display: flex;
+                            flex-direction: column;
+                            gap: 0.2vw;
+        
+                            img {
+                                width: 8vw;
+                            }
+        
+                            h2 {
+                                font-size: 48px;
+                            }
+                        }
+        
+                        &_2 {
+                            h1 {
+                                font-size: 68px;
+
+                            }
+        
+                            p {
+                                font-size: 2.8vw;
+                            }
+                        }
+        
+        
+                        button {
+                            margin-top: 4vw;
+                            border-radius: 1vw;
+                            width: 14vw;
+                        }
+                    }
+        
+        
+                }
+        
+                &_Section2 {
+                    width: 100vw;
+                    height: 1500px;
+                    margin-bottom: 00px;
+                    margin-top: -200px;
+
+        
+                    &_display {
+                        gap: 8vw;
+        
+                        &_Content {
+                            gap: 2vw;
+                            width: 35vw;
+        
+                            &_text {
+                                gap: 2vw;
+        
+                                h3 {
+                                    font-size: 1.8vw;
+                                }
+        
+                                p {
+                                    font-size: 1.5vw;
+                                }
+                            }
+        
+                            button {
+                                border-radius: 1vw;
+                                width: 30vw;
+                            }
+                        }
+        
+                        img {
+                            width: 40vw;
+                        }
+        
+                    }
+        
+                }
+        
+                &_Section3 {
+                    height: 900px;
+              
+        
+                    button {
+                        margin-top: 5vw;
+                        border-radius: 2vw;
+                        width: 25vw;
+                    }
+        
+                    &_Content {
+                        width: 60vw;
+                        gap: 2vw;
+        
+                        h2 {
+                            font-size: 3vw;
+                        }
+        
+                        p {
+                            font-size: 2.5vw;
+                        }
+                    }
+                }
+            }
+        
+        }
+    
+    }
 }
 
 @media (max-width: 768px) {
@@ -294,3 +422,4 @@
         }
     }
 }
+
