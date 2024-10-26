@@ -60,7 +60,8 @@ const AdmPainel = () => {
       }
 
       const result = await response.json();
-      setData(result);
+      const sortedData = result.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+      setData(sortedData);
     } catch (error) {
       console.error('Erro ao buscar os dados:', error);
     } finally {
@@ -218,14 +219,14 @@ const AdmPainel = () => {
                     <td>{item.Services}</td>
                     <td>{format(new Date(item.createdAt), 'dd/MM/yyyy')}</td>
                     <td>
-                      <button onClick={() => handleDelete(item._id)}>Excluir</button>
+                      <button id='DT' onClick={() => handleDelete(item._id)}>Excluir</button>
                     </td>
                   </tr>
                 ))}
               </tbody>
             </table>
 
-            <button className='export'onClick={exportToExcel}>Exportar para Excel</button>
+            <button className='export' onClick={exportToExcel}>Exportar para Excel</button>
 
             <div className="pagination">
               {Array.from({ length: totalPages }, (_, index) => (
