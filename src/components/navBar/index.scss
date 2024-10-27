@@ -5,7 +5,7 @@
     padding: 0;
     background-color: $primaryBlue;
     font-family: $font-semibold;
-    height: 7vw;
+    height: 5vw;
     position: fixed;
     z-index: 1000; 
     width: 100vw;
@@ -32,7 +32,7 @@
         padding-inline: 3vw;
 
         nav {  
-            height: 7vw;
+            height: 100px;
             display: flex;
             justify-content: space-between;
             align-items: center;

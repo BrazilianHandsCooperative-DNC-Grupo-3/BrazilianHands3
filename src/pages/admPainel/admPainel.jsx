@@ -208,7 +208,12 @@ const AdmPainel = () => {
               </thead>
               <tbody>
                 {currentItems.map((item, index) => (
-                  <tr key={index}>
+                  <tr
+                  key={index}
+                  style={{
+                    backgroundColor: index % 2 === 0 ? '#bcebc1' : '#c5f3f3'
+                  }}
+                >
                     <td>{item.Contact}</td>
                     <td>{item.Email}</td>
                     <td>{item.Phone}</td>
