@@ -314,8 +314,8 @@
 
 
             &_Section1 {
-                background-image: url('../../../public/Section1Mobile.svg');
-                height: 100vw;
+                background-image: url('../../../public/Section1Mobile.webp');
+                height: 120vw;
                 background-position: center;
                 background-size: 100%;
 
@@ -324,6 +324,7 @@
                     margin-left: 10vw;
                     width: 80vw;
                     gap: 8vw;
+                    padding-top: 10vw;
 
                     &_1 {
                         img {
@@ -398,7 +399,7 @@
             }
 
             &_Section3 {
-                background-image: url('../../../public/Section2Mobile.svg');
+                background-image: url('../../../public/Section2Mobile.webp');
                 height: 110vw;
                 background-size: 100%;
 
