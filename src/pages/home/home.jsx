@@ -84,7 +84,7 @@ function Home() {
                         colour for your space.
                       </p>
                     </div>
-                    <img src="image 27.svg" alt="img" />
+                    <img src="image 27.webp" alt="img" />
 
                   </div>
                   <div className="container_Itens_Section2_display">
@@ -130,7 +130,7 @@ function Home() {
                     </Link>
                   </div>
                   <div className="container_Itens_Section2_display">
-                    <img src="section2image.svg" alt="img" />
+                    <img src="section2image.webp" alt="img" />
                   </div>
                 </>
               )}
