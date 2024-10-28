@@ -61,6 +61,14 @@
     border: none;
     color: $primaryFontColor;
     padding: 1rem;
+
+    &:hover {
+      background-color: $hoverBlue;
+      box-shadow: 2px 5px 0px 0px $shadowBlue;
+      transform: translateY(-2px);
+      transition-duration: 0.4s;
+      cursor: pointer;
+  }
   }
 }
 

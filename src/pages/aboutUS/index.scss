@@ -230,7 +230,7 @@
         }
 
         &__visionb {
-            width: 80vw;
+            width: 80vw !important;
             margin: 10vw;
 
             h2 {
@@ -243,9 +243,10 @@
             }
 
             .contactButton {
-                border-radius: 2vw;
+                border-radius: 1000px;
                 font-size: 2vw;
                 height: 5vw;
+                width: 80vw;
             }
         }
 
