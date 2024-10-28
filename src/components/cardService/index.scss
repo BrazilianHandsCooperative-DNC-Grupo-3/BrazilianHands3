@@ -18,7 +18,8 @@
 
 
         img{
-            width: 60%;
+            width: 150px !important;
+            height: 150px;
         }
 
         &_1{
@@ -48,14 +49,14 @@
         gap: 3vw;
         border-radius: 3vw;
         width: 85vw;
-        height: 55vw;
+        height: 70vw;
         padding: 3vw 3vw;
     
         .img_card{
     
     
             img{
-                width: 25%;
+                width: 25% !important;
             }
     
             &_1{

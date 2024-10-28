@@ -70,7 +70,7 @@
     
                     button {
                         margin-top: 8vw;
-                        border-radius: 1vw;
+                        border-radius: 1000px;
                         width: 16vw;
                     }
                 }
@@ -119,7 +119,7 @@
                         }
     
                         button {
-                            border-radius: 1vw;
+                            border-radius: 1000px;
                             width: 30vw;
                         }
                     }
@@ -175,7 +175,7 @@
 
     @media (min-width: 1700px) {
         .container {
-            padding-top: 5vw; // Mantendo o padding-top para a navbar fixa
+             // Mantendo o padding-top para a navbar fixa
         
             .container_Itens {
                 button {
@@ -186,9 +186,10 @@
         
         
                 &_Section1 {
-                    height: 1400px;
+                    height: 1300px;
         
                     &_Content {
+                        padding-top: 8vw !important;
                         gap: 3vw;
                         margin-left: 5vw;
                         width: 49vw;
@@ -233,7 +234,7 @@
         
                 &_Section2 {
                     width: 100vw;
-                    height: 100rem;
+                    height: 90rem;
                     
                     &_display {
                         gap: 8vw;
@@ -313,6 +314,8 @@
             &_Section1 {
                 background-image: url('../../../public/Section1Mobile.svg');
                 height: 100vw;
+                background-position: center;
+                background-size: 100%;
 
                 &_Content {
                     gap: 3vw;
