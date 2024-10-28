@@ -1,7 +1,7 @@
 @use '../../styles/var' as *;
 
 .image-ReturnTeam {
-    background-image: url('../../../public/imageReturnTeam.svg');
+    background-image: url('../../../public/imageReturnTeam.webp');
     background-position: center;
     background-size: cover;
     height: 600px;
@@ -44,7 +44,7 @@
 }
 @media (max-width: 767px) {
     .image-ReturnTeam {
-        background-image: url('../../../public/imageReturnTeam.svg');
+        background-image: url('../../../public/imageReturnTeam.webp');
         background-position: center;
         background-size: cover;
         height: 600px;
@@ -52,7 +52,7 @@
     }
 
     .text-ReturnTeam {
-        padding-top: 30vw;
+        padding-top: 40vw;
         display: flex;
         align-items: center;
         justify-content: center;
